@@ -23,15 +23,12 @@
         $('.mission_header_info').css('margin-top', -mission_header_height-21+'px');
         $('#iframe-inside-container').css('margin-top', mission_header_height+21+'px');
         $('#iframe-inside-container').css('margin-bottom', -mission_header_height-21+'px');
-        console.log($('#iframe-inside-container').height());
         if (self != top) {
             $('#iframe-inside-container').css('height', $('#iframe-inside-container').height()-$('#container_navbar_alarm').height()-46+'px');
         };
         //$('#iframe-inside-container').css('height', '100%');
-        console.log($('#iframe-inside-container').height());
         $('.close').css('margin-top', -mission_header_height-21+'px');
         iframe_inside_container_height = $('#iframe-inside-container').height();
-        console.log("Changed");
     };
 
     changeHeight();
@@ -39,11 +36,9 @@
 
     function checkForHeightChange() {
         if (($('.mission_header_info').height() != mission_header_height) || ($('#iframe-inside-container').height() != iframe_inside_container_height)){
-            console.log("Difference");
             changeHeight();
         }
 
-        console.log("Checked");
         //setInterval(checkForHeightChange, 5000);
     };
     $(document).ready(function() {
