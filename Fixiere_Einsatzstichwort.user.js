@@ -4,10 +4,12 @@
 // @version      1.1
 // @description  Fixiert die Kopfzeile im Einsatzfenster
 // @author       TutePlays
-// @match        *leitstellenspiel.de/missions/*
-// @match        *missionchief.com/missions/*
-// @match        *meldkamerspel.com/missions/*
-// @match        *missionchief.co.uk/missions/*
+// @include      *://www.leitstellenspiel.de/
+// @include      *://www.leitstellenspiel.de/*
+// @include      *://www.missionchief.com/*
+// @include      *://www.missionchief.com/
+// @include      *://www.meldkamerspel.com/*
+// @include      *://www.meldkamerspel.com/
 // @grant        none
 // ==/UserScript==
 
