@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Fixiere Einsatzstichwort
 // @namespace    https://youtube.com/tuteplays
-// @version      1.0
+// @version      1.1
 // @description  Fixiert die Kopfzeile im Einsatzfenster
 // @author       TutePlays
 // @match        https://www.leitstellenspiel.de/missions/*
@@ -17,11 +17,20 @@
     $('.close').css('z-index', '10001');
 
     var mission_header_height;
+    var iframe_inside_container_height;
     function changeHeight() {
         mission_header_height = $('.mission_header_info').height();
         $('.mission_header_info').css('margin-top', -mission_header_height-21+'px');
-        $('.container-fluid').css('margin-top', mission_header_height+21+'px');
+        $('#iframe-inside-container').css('margin-top', mission_header_height+21+'px');
+        $('#iframe-inside-container').css('margin-bottom', -mission_header_height-21+'px');
+        console.log($('#iframe-inside-container').height());
+        if (self != top) {
+            $('#iframe-inside-container').css('height', $('#iframe-inside-container').height()-$('#container_navbar_alarm').height()-46+'px');
+        };
+        //$('#iframe-inside-container').css('height', '100%');
+        console.log($('#iframe-inside-container').height());
         $('.close').css('margin-top', -mission_header_height-21+'px');
+        iframe_inside_container_height = $('#iframe-inside-container').height();
         console.log("Changed");
     };
 
@@ -29,20 +38,26 @@
     checkForHeightChange();
 
     function checkForHeightChange() {
-        if ($('.mission_header_info').height() != mission_header_height){
+        if (($('.mission_header_info').height() != mission_header_height) || ($('#iframe-inside-container').height() != iframe_inside_container_height)){
             console.log("Difference");
             changeHeight();
         }
+
         console.log("Checked");
         //setInterval(checkForHeightChange, 5000);
     };
     $(document).ready(function() {
-        setTimeout(checkForHeightChange, 2000);
+        setTimeout(checkForHeightChange, 100);
+        setTimeout(checkForHeightChange, 300);
+        setTimeout(checkForHeightChange, 400);
+        setTimeout(checkForHeightChange, 500);
+        setTimeout(checkForHeightChange, 650);
+        setTimeout(checkForHeightChange, 800);
+        setTimeout(checkForHeightChange, 1000);
+        setTimeout(checkForHeightChange, 1200);
     });
-    $(document).ready(function() {
-        setTimeout(checkForHeightChange, 4000);
-    });
+
      $(document).mouseup(function() {
-        setTimeout(checkForHeightChange, 4000);
+        setTimeout(checkForHeightChange, 100);
     });
 })();
